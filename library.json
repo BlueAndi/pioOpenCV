@@ -1,0 +1,11 @@
+{
+    "name": "pioOpenCV",
+    "version": "1.0.0",
+    "description": "A precompiled opencv library for platform io",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BlueAndi/pioOpenCV"
+    },
+    "frameworks": "*",
+    "platforms": "*"
+}
