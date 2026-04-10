@@ -7,5 +7,11 @@
         "url": "https://github.com/BlueAndi/pioOpenCV"
     },
     "frameworks": "*",
-    "platforms": "*"
+    "platforms": "*",
+    "build": {
+        "srcFilter": [
+            "+<*>",
+            "-<opencv/>"
+        ]
+    }
 }
