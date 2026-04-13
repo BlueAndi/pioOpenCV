@@ -1,17 +1,34 @@
 @echo off
+setlocal enabledelayedexpansion
 
-REM Copy all .a files
-xcopy "opencv\build\esp-idf\espressif__opencv\opencv-build\lib\*.a" "lib\" /Y /I
+:: Copy all .a files
+echo Copying .a files...
+if not exist "lib" mkdir "lib"
+xcopy /Y /F "opencv\build\esp-idf\espressif__opencv\opencv-build\lib\*.a" "lib\" >nul || (
+    echo Error copying .a files
+    pause
+    exit /b 1
+)
 
-REM Copy all include files from modules
-for /d %%d in (opencv\managed_components\espressif__opencv\opencv\modules\*) do (
-    if exist "%%d\include" (
-        xcopy "%%d\include\*" "include\" /E /Y /I
+:: Copy all include files from modules
+echo Copying include files from modules...
+if not exist "include" mkdir "include"
+for /f "delims=" %%d in ('dir /s /b /ad "opencv\managed_components\espressif__opencv\opencv\modules\include"') do (
+    xcopy /E /Y /F "%%d\*" "include\" >nul || (
+        echo Error copying from "%%d"
+        pause
+        exit /b 1
     )
 )
 
-REM Copy opencv2 directory
-xcopy "opencv\build\esp-idf\espressif__opencv\opencv-build\opencv2" "include\opencv2\" /E /Y /I
+:: Copy the opencv2 directory
+echo Copying opencv2 directory...
+if not exist "include\opencv2" mkdir "include\opencv2"
+xcopy /E /Y /F "opencv\build\esp-idf\espressif__opencv\opencv-build\opencv2\*" "include\opencv2\" >nul || (
+    echo Error copying opencv2
+    pause
+    exit /b 1
+)
 
 echo Done!
 pause
