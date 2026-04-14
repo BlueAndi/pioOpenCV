@@ -2,11 +2,13 @@
 
 OpenCV prepared as PlatformIO library.
 
-## setup environment and build static lib
+## setup environment
 
 ### get ESP-IDF extension for VSCode
 
 Install the VSCode extension "ESP-IDF" from Espressif Systems (https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension).
+
+## build opencv lib
 
 ### open and build project opencv
 
