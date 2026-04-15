@@ -1,7 +1,7 @@
 {
     "name": "pioOpenCV",
     "version": "1.0.0",
-    "description": "A precompiled opencv library for platform io",
+    "description": "A precompiled opencv library for PlatformIO",
     "repository": {
         "type": "git",
         "url": "https://github.com/BlueAndi/pioOpenCV"
