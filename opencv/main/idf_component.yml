@@ -1,0 +1,5 @@
+dependencies:
+  espressif/opencv:
+    version: '*'
+  idf:
+    version: '>=4.1.0'
